@@ -1,0 +1,27 @@
+package Assignments;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+public class Assignment1 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\dell\\Documents\\Selenium B\\Chrome D\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("whttps://www.google.com/");
+		driver.manage().window().maximize();
+		driver.get("https://vitshr.com/");
+		
+		System.out.println(driver.getTitle());
+		Assert.assertEquals(driver.getTitle(), "VITS HR");
+		
+		driver.navigate().to("https://www.facebook.com/");
+		driver.navigate().back();
+		System.out.println(driver.getCurrentUrl());
+		driver.navigate().forward();
+		driver.navigate().refresh();
+
+	}
+
+}

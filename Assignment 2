@@ -1,0 +1,53 @@
+package Assignments;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Assignment2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\dell\\Documents\\Selenium B\\Chrome D\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
+		driver.manage().deleteAllCookies();
+		driver.navigate().to("https://www.facebook.com/");
+		System.out.println(driver.getCurrentUrl());
+		
+		if("driver.getCurrentUrl".equalsIgnoreCase("https://www.facebook.com/"))
+		{
+			System.out.println("PASS"); } else {
+				
+				System.out.println("Fail");
+				
+			}
+		//Assert.assertEquals("driver.getCurrentUrl()", "https://www.facebook.com/");
+		driver.findElement(By.linkText("Create New Account")).click();
+		Thread.sleep(6000);
+		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Jayesh");
+		driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys("Ramani");
+		driver.findElement(By.cssSelector("input[name='reg_email__']")).sendKeys("123456789");
+		driver.findElement(By.cssSelector("input[name='reg_passwd__']")).sendKeys("909090");
+		Select Month= new Select(driver.findElement(By.name("birthday_month")));
+		Month.selectByVisibleText("Dec");
+		Select date = new Select(driver.findElement(By.name("birthday_day")));
+		date.selectByValue("5");
+		//date.selectByVisibleText("05");
+		Select year = new Select(driver.findElement(By.name("birthday_year")));
+		year.selectByVisibleText("1997");
+		driver.findElement(By.cssSelector("input[value='2']")).click();
+		driver.findElement(By.name("websubmit")).click();
+		
+	
+		
+		
+
+
+	}
+}
+		
+		
+	
+
+

@@ -1,0 +1,30 @@
+package Assignments;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+public class assignment6 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\dell\\Documents\\Selenium B\\Chrome95\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://jqueryui.com/droppable/");
+		driver.switchTo().frame(driver.findElement(By.cssSelector("iframe[class='demo-frame']")));
+		Actions a = new Actions(driver);
+		WebElement source = driver.findElement(By.id("draggable"));
+		WebElement target = driver.findElement(By.id("droppable"));
+		a.dragAndDrop(source, target).build().perform();
+		String text = target.getText();
+		Assert.assertEquals(text, "Dropped!");
+		{
+			System.out.println("Test passed");
+		}
+		
+
+	}
+
+}

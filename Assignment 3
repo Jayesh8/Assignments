@@ -1,0 +1,23 @@
+package Assignments;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class assignment3 {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\dell\\Documents\\Selenium B\\Chrome95\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		driver.navigate().to("https://www.flipkart.com/");
+		WebElement home = driver.findElement(By.id("container"));
+		int abc= home.findElements(By.tagName("a")).size();
+		System.out.println("Total links on homepage are:" + abc);
+		
+		
+	}
+
+}
